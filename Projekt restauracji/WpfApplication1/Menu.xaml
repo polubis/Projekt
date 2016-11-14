@@ -32,6 +32,19 @@
                             <Image Source="Pictures/exitIcon.png" Width="21"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    
+                </MenuItem>
+                <MenuItem Header="Informacje" HorizontalAlignment="Right" >
+                    <MenuItem Header="Liczba rekordów">
+                        <MenuItem.Icon>
+                            <Image Source="Pictures/howMany.png" Width="21"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Kalendarz">
+                        <MenuItem.Icon>
+                            <Image Source="Pictures/kalendarz.png" Width="21"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
         </DockPanel>
@@ -42,6 +55,7 @@
                 <Button Width="100" Height="35" HorizontalAlignment="Left" Margin="8,0,0,0" Content="Dodaj"/>
                 <Button Width="100" Height="35" HorizontalAlignment="Left" Margin="3,0,0,0" Content="Usuń"/>
             </WrapPanel>
+            
             <ListView Name="listaDan" Width="405">
                 <ListView.View>
                     <GridView>
@@ -51,6 +65,9 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-        </DockPanel>
+          
+      
+    </DockPanel>
+        
     </Grid>
 </Window>

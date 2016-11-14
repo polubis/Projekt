@@ -68,6 +68,7 @@ namespace WpfApplication1
             daniaList.Add(new Dania(42, "Owoce morza", 13, Dania.rodzajDania.DanieGłówne));
             daniaList.Add(new Dania(43, "Zapiekanka mazurska", 11, Dania.rodzajDania.DanieGłówne));
             daniaList.Add(new Dania(44, "Łosoś", 17, Dania.rodzajDania.DanieGłówne));
+            
               listaDan.ItemsSource = daniaList;
           
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // Podzial na rodzaje dan
@@ -77,12 +78,18 @@ namespace WpfApplication1
           
 
             ApplicationCommands.Open.InputGestures.Add(new KeyGesture (Key.K,ModifierKeys.Control));  // uzbrojenie kontroli w skrot
+            
 
-
-
+            int ileElementow =(daniaList.Count);
+            Convert.ToString(ileElementow);
+            
             
         }
+        private string Zwracam(string ileElem)
+        {
+            return ileElem;
 
+        }
         private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e) //1. Odnosi sie do kontrolki exit
         {
             e.CanExecute = true;
@@ -102,6 +109,16 @@ namespace WpfApplication1
         {
             Kalkulator ob3 = new Kalkulator();
             ob3.Show();
+        }
+
+        private void CommandBinding_CanExecute_2(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CommandBinding_Executed_2(object sender, ExecutedRoutedEventArgs e)
+        {
+            
         }
 
        

@@ -1,0 +1,59 @@
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\Projekt.csprojResolveAssemblyReference.cache
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\MainWindow.baml
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\Window1.baml
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\Window2.baml
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\MainWindow.g.cs
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\Window1.g.cs
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\Window2.g.cs
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\App.g.cs
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\Projekt.csproj.GenerateResource.Cache
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.exe
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.pdb
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.exe
+c:\users\adrianek\documents\visual studio 2013\Projects\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.exe
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.exe
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.pdb
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Projekt.csprojResolveAssemblyReference.cache
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\MainWindow.baml
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Window1.baml
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Window2.baml
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\MainWindow.g.cs
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Window1.g.cs
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Window2.g.cs
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\App.g.cs
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Projekt.csproj.GenerateResource.Cache
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.exe
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Projekt.csprojResolveAssemblyReference.cache
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\MainWindow.baml
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Window1.baml
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Window2.baml
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\MainWindow.g.cs
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Window1.g.cs
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Window2.g.cs
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\App.g.cs
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Projekt.csproj.GenerateResource.Cache
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.exe
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\WpfApplication1.pdb
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Kalkulator.baml
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Kalkulator.g.cs
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Menu.baml
+C:\Users\bialy\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Menu.g.cs
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Kalkulator.baml
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Menu.baml
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Kalkulator.g.cs
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Menu.g.cs

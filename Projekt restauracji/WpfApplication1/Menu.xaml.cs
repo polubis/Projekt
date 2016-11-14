@@ -74,6 +74,7 @@ namespace WpfApplication1
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // inicjalizacja i deklaracja nowego widoku na bazie z listy wyzej
             view.Filter = IdFilter;             // Przypisanie wyniku funkcji do zmiennej view
+
         }
 
         private bool IdFilter(object item)  // Sprawdza czy obiekt jest 0 albo pusty
