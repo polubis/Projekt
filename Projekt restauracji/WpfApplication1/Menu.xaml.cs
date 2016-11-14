@@ -70,28 +70,35 @@ namespace WpfApplication1
             daniaList.Add(new Dania(44, "Łosoś", 17, Dania.rodzajDania.DanieGłówne));
             listaDan.ItemsSource = daniaList;
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource);
-            view.Filter = UserFilter;
-        }
-        private bool UserFilter(object item)
-        {
-            if (String.IsNullOrEmpty(txtFilter.Text))
-                return true;
-            else
-                return ((item as Dania).Danie.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            ApplicationCommands.Open.InputGestures.Add(new KeyGesture(Key.K, ModifierKeys.Control));  // uzbrojenie kontroli w skrot
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // inicjalizacja i deklaracja nowego widoku na bazie z listy wyzej
+            view.Filter = IdFilter;             // Przypisanie wyniku funkcji do zmiennej view
         }
 
-        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        private bool IdFilter(object item)  // Sprawdza czy obiekt jest 0 albo pusty
+        {
+            if (string.IsNullOrEmpty(txtIdNazwaFilter.Text))
+                return true;
+            else
+                return ((item as Dania).ID.ToString().IndexOf(txtIdNazwaFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0) || ((item as Dania).Danie.IndexOf(txtIdNazwaFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+
+
+
+        private void txtIdNazwaFilter_TextChanged(object sender, TextChangedEventArgs e) // Funkcja aktualizujaca liste po wyszukiwaniu
         {
             CollectionViewSource.GetDefaultView(listaDan.ItemsSource).Refresh();
         }
+
 
         private void CommandBinding_CanExecute_3(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
 
-        private void CommandBinding_Executed_3(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Executed_3(object sender, ExecutedRoutedEventArgs e) // Zamykanie aplikacji
         {
             Application.Current.Shutdown();
         }
@@ -101,12 +108,13 @@ namespace WpfApplication1
             e.CanExecute = true;
         }
 
-        private void CommandBinding_Executed_2(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Executed_2(object sender, ExecutedRoutedEventArgs e) // Otwieranie kalkulatora
         {
             Kalkulator ob3 = new Kalkulator();
             ob3.Show();
         }
 
+    
      
 
      
