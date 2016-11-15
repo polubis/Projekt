@@ -119,13 +119,19 @@ namespace WpfApplication1
             ob3.Show();
         }
 
-        private void add_button(object sender, RoutedEventArgs e)
+        private void add_button(object sender, RoutedEventArgs e)  // Przycisk dodajacy wartosci do pol 
         {
-            daniaList.Add(new Dania(Convert.ToInt32(pobierzID.Text), pobierzDanie.Text, double.Parse(pobierzCene.Text)));
-            
+            if (string.IsNullOrEmpty(Convert.ToString(pobierzID.Text)) || string.IsNullOrEmpty(pobierzDanie.Text) || string.IsNullOrEmpty(Convert.ToString(pobierzCene.Text)))
+            {
+                MessageBox.Show("Nie dodałeś wartości do pól");
+            }
+            else
+            {
+                daniaList.Add(new Dania(Convert.ToInt32(pobierzID.Text), pobierzDanie.Text, double.Parse(pobierzCene.Text)));
+            }
         }
 
-        private void delete_button(object sender, RoutedEventArgs e)
+        private void delete_button(object sender, RoutedEventArgs e) // przycisk usuwajacy wybrana wartosc
         {
             int wybranyWiersz = listaDan.SelectedIndex;   // sprawdzam ifem czy nie zwrocilo wartosci -1
             if(wybranyWiersz!=-1)
