@@ -59,7 +59,23 @@
 
             </WrapPanel>
 
-            <ListView Name="listaDan" Width="391" Margin="0,0,0,0" SelectionMode="Multiple">
+            <ListView Name="listaDan" Width="391" Margin="0,0,0,0" SelectionMode="Multiple" SelectionChanged="listaDan_SelectionChanged">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Padding" Value="5"/>
+                         <Style.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="IsFocused" Value="true"/>
+                                </MultiTrigger.Conditions>
+                                 <Setter Property="FontSize" Value="15"/>
+                                 <Setter Property="FontWeight" Value="Bold"/>
+                            </MultiTrigger>
+                            
+                         </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}" />

@@ -127,7 +127,13 @@ namespace WpfApplication1
 
         private void delete_button(object sender, RoutedEventArgs e)
         {
+            int wybranyWiersz = listaDan.SelectedIndex;   // sprawdzam ifem czy nie zwrocilo wartosci -1
+            if(wybranyWiersz!=-1)
+            daniaList.RemoveAt(wybranyWiersz);
+        }
 
+        private void listaDan_SelectionChanged(object sender, SelectionChangedEventArgs e) // przechwytuje zaznaczenie
+        {
         }
         
 
