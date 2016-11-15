@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,12 @@ namespace WpfApplication1
     /// </summary>
     public partial class Menu : Window
     {
+        ObservableCollection<Dania> daniaList = new ObservableCollection<Dania>();
         public Menu()
         {
             InitializeComponent();
             // Spis dan w MENU
-            List<Dania> daniaList = new List<Dania>();
+            #region
             daniaList.Add(new Dania(1, "CocaCola 330ml", 4, Dania.rodzajDania.Napoj));
             daniaList.Add(new Dania(2, "Sprite 330ml", 4, Dania.rodzajDania.Napoj));
             daniaList.Add(new Dania(3, "Fanta 330ml", 4, Dania.rodzajDania.Napoj));
@@ -68,14 +70,15 @@ namespace WpfApplication1
             daniaList.Add(new Dania(42, "Owoce morza", 13, Dania.rodzajDania.DanieGłówne));
             daniaList.Add(new Dania(43, "Zapiekanka mazurska", 11, Dania.rodzajDania.DanieGłówne));
             daniaList.Add(new Dania(44, "Łosoś", 17, Dania.rodzajDania.DanieGłówne));
+            daniaList.Add(new Dania(45, "Makrela w occie", 17.5, Dania.rodzajDania.DanieGłówne));
             listaDan.ItemsSource = daniaList;
-
+            #endregion
             ApplicationCommands.Open.InputGestures.Add(new KeyGesture(Key.K, ModifierKeys.Control));  // uzbrojenie kontroli w skrot
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // inicjalizacja i deklaracja nowego widoku na bazie z listy wyzej
             view.Filter = IdFilter;             // Przypisanie wyniku funkcji do zmiennej view
-          
 
+            
 
         }
         #region
@@ -118,30 +121,15 @@ namespace WpfApplication1
 
         private void add_button(object sender, RoutedEventArgs e)
         {
-
+            daniaList.Add(new Dania(Convert.ToInt32(pobierzID.Text), pobierzDanie.Text, double.Parse(pobierzCene.Text)));
+            
         }
 
         private void delete_button(object sender, RoutedEventArgs e)
         {
 
         }
-        #region
-
-        private void pobierzID_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void pobierzDanie_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void pobierzCene_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-        #endregion
+        
 
     }
      

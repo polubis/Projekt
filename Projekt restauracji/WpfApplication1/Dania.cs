@@ -10,15 +10,15 @@ namespace WpfApplication1
     {
         public int ID { get; set; }                       // zmienne 
         public string Danie { get; set; }
-        public float Cena { get; set; }
+        public double Cena { get; set; }
         public Dania() { }
-        public Dania(int ID, string Danie, float Cena)
+        public Dania(int ID, string Danie, double Cena)
         {
             this.ID = ID;
             this.Danie = Danie;
             this.Cena = Cena;
         }
-        public Dania(int ID,string Danie,float Cena,rodzajDania jakieDanie) 
+        public Dania(int ID,string Danie,double Cena,rodzajDania jakieDanie) 
         {
             this.ID = ID;
             this.Danie = Danie;
