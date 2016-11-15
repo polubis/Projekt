@@ -12,6 +12,12 @@ namespace WpfApplication1
         public string Danie { get; set; }
         public float Cena { get; set; }
         public Dania() { }
+        public Dania(int ID, string Danie, float Cena)
+        {
+            this.ID = ID;
+            this.Danie = Danie;
+            this.Cena = Cena;
+        }
         public Dania(int ID,string Danie,float Cena,rodzajDania jakieDanie) 
         {
             this.ID = ID;

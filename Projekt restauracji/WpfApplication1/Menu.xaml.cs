@@ -74,25 +74,26 @@ namespace WpfApplication1
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // inicjalizacja i deklaracja nowego widoku na bazie z listy wyzej
             view.Filter = IdFilter;             // Przypisanie wyniku funkcji do zmiennej view
+          
+
 
         }
-
+        #region
         private bool IdFilter(object item)  // Sprawdza czy obiekt jest 0 albo pusty
         {
             if (string.IsNullOrEmpty(txtIdNazwaFilter.Text))
                 return true;
             else
-                return ((item as Dania).ID.ToString().IndexOf(txtIdNazwaFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0) || ((item as Dania).Danie.IndexOf(txtIdNazwaFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                return ((item as Dania).ID.ToString().IndexOf(txtIdNazwaFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0) 
+                    || ((item as Dania).Danie.IndexOf(txtIdNazwaFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    || ((item as Dania).jakieDanie.ToString().IndexOf(txtIdNazwaFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
-
-
-
-
         private void txtIdNazwaFilter_TextChanged(object sender, TextChangedEventArgs e) // Funkcja aktualizujaca liste po wyszukiwaniu
         {
             CollectionViewSource.GetDefaultView(listaDan.ItemsSource).Refresh();
         }
-
+        #endregion
+       
 
         private void CommandBinding_CanExecute_3(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -115,9 +116,37 @@ namespace WpfApplication1
             ob3.Show();
         }
 
-    
+        private void add_button(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void delete_button(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #region
+
+        private void pobierzID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void pobierzDanie_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void pobierzCene_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        #endregion
+
+    }
      
 
      
     }
-}
+
+
