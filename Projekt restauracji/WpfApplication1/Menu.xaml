@@ -58,14 +58,7 @@
                 <Label Content="Cena" Margin="10,20,0,0" Height="30" Width="40"/>
                 <TextBox Width="111" Margin="15,20,0,0" Height="22" x:Name="pobierzCene" />
                 <Label Width="48" Margin="10,20,0,0" Height="29" Content="Rodzaj" />
-                <ComboBox Width="111" Height="22" Margin="8,20,0,0" x:Name="ListaRodzajow"/>
-                    
-               
-
-
-
-
-
+                <TextBox Width="111" Margin="7,20,0,0" Height="22" x:Name="pobierzRodzaj"/>
 
             </WrapPanel>
 
@@ -88,10 +81,11 @@
                 </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}" />
-                        <GridViewColumn Header="Danie" Width="150" DisplayMemberBinding="{Binding Danie}" />
-                        <GridViewColumn Header="Cena" Width="70" DisplayMemberBinding="{Binding Cena}" />
-                        <GridViewColumn Header="Rodzaj" Width="100" DisplayMemberBinding="{Binding jakieDanie}" />
+                        <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}"/>
+                        <GridViewColumn Header="Danie"  Width="150" DisplayMemberBinding="{Binding Danie}" />
+                        <GridViewColumn Header="Cena"  Width="70" DisplayMemberBinding="{Binding Cena}"/>
+                                <GridViewColumn Header="Rodzaj" Width="100" DisplayMemberBinding="{Binding jakieDanie}"/>
+
                     </GridView>
                 </ListView.View>
             </ListView>

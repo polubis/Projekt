@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;      // potrzebna do sortowania
+using System.Collections.ObjectModel;  // potrzebna do sort desc
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,7 +122,7 @@ namespace WpfApplication1
 
         private void add_button(object sender, RoutedEventArgs e)  // Przycisk dodajacy wartosci do pol 
         {
-            if (string.IsNullOrEmpty(Convert.ToString(pobierzID.Text)) || string.IsNullOrEmpty(pobierzDanie.Text) || string.IsNullOrEmpty(Convert.ToString(pobierzCene.Text)))
+            if (string.IsNullOrEmpty(Convert.ToString(pobierzID.Text)) || string.IsNullOrEmpty(pobierzDanie.Text) || string.IsNullOrEmpty(Convert.ToString(pobierzCene.Text))) 
             {
                 MessageBox.Show("Nie dodałeś wartości do pól");
             }
@@ -141,6 +142,10 @@ namespace WpfApplication1
         private void listaDan_SelectionChanged(object sender, SelectionChangedEventArgs e) // przechwytuje zaznaczenie
         {
         }
+
+       
+
+       
         
 
     }

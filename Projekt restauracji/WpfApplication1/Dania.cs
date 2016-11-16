@@ -27,6 +27,6 @@ namespace WpfApplication1
         }
         public enum rodzajDania { Herbata, Kawa, Napoj, Alkohole, Przystawka, Zupa, DanieGłówne, Pizza,Deser,Dodatki };
         public rodzajDania jakieDanie {get; set;}
-        
+     
     }
 }
