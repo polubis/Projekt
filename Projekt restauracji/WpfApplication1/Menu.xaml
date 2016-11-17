@@ -66,6 +66,7 @@
                 <TextBox Width="111" Margin="15,20,0,0" Height="22" x:Name="pobierzCene" />
                 <Label Width="48" Margin="10,20,0,0" Height="29" Content="Rodzaj" />
                 <ComboBox x:Name="pobierzRodzaj" ItemsSource="{Binding Source={StaticResource Lista}}" Width="111" Margin="7,20,0,0" Height="22"/>
+                
                
 
 
@@ -103,9 +104,23 @@
         <DockPanel>
             
             <WrapPanel  Width="524" RenderTransformOrigin="0.135,0.508" Margin="210,353,0,10">
-                <ListView x:Name="ListaDanCopy" Width="475" Height="208" Margin="26,5,0,0"/>
+                <ListView x:Name="ListaDanCopy" Width="475" Height="208" Margin="26,5,0,0">
+              
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}"/>
+                            <GridViewColumn Header="Danie"  Width="150" DisplayMemberBinding="{Binding Danie}"/>
+                            <GridViewColumn Header="Cena"  Width="70" DisplayMemberBinding="{Binding Cena}"/>
+                                <GridViewColumn Header="Rodzaj" Width="100" DisplayMemberBinding="{Binding jakieDanie}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Margin="50,30,0,0" Width="100" Height="35" Click="BdodajDoRachunku" Content="Dodaj do&#xD;&#xA;rachunku"/>
+                <Button Margin="50,30,0,0" Width="100" Height="35" Click="BUsunZRachunku" Content="Usuń z rachunku" />
             </WrapPanel>
+            
         </DockPanel>
+        
 
     </Grid>
 </Window>

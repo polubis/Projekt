@@ -22,6 +22,7 @@ namespace WpfApplication1
     public partial class Menu : Window
     {
         ObservableCollection<Dania> daniaList = new ObservableCollection<Dania>();
+        ObservableCollection<Dania> daniaListCopied = new ObservableCollection<Dania>();
         public Menu()
         {
             InitializeComponent();
@@ -73,6 +74,7 @@ namespace WpfApplication1
             daniaList.Add(new Dania(44, "Łosoś", 17, Dania.rodzajDania.DanieGłówne));
             daniaList.Add(new Dania(45, "Makrela w occie", 17.5, Dania.rodzajDania.DanieGłówne));
             listaDan.ItemsSource = daniaList;
+          
             #endregion
             ApplicationCommands.Open.InputGestures.Add(new KeyGesture(Key.K, ModifierKeys.Control));  // uzbrojenie kontroli w skrot
 
@@ -138,14 +140,43 @@ namespace WpfApplication1
 
         private void delete_button(object sender, RoutedEventArgs e) // przycisk usuwajacy wybrana wartosc
         {
+            
             int wybranyWiersz = listaDan.SelectedIndex;   // sprawdzam ifem czy nie zwrocilo wartosci -1
             if(wybranyWiersz!=-1)
             daniaList.RemoveAt(wybranyWiersz);
+             
+          
         }
 
         private void listaDan_SelectionChanged(object sender, SelectionChangedEventArgs e) // przechwytuje zaznaczenie
         {
         }
+
+        private void BdodajDoRachunku(object sender, RoutedEventArgs e)
+        {
+            int WybranyWiersz = listaDan.SelectedIndex;
+            if(WybranyWiersz!=-1)
+            {
+
+                foreach (var element in daniaList)
+                {
+                        daniaListCopied.Add(new Dania(element.ID, element.Danie, element.Cena,element.jakieDanie));
+                        break;
+                    
+                }
+                ListaDanCopy.ItemsSource = daniaListCopied;
+            }
+        }
+
+        private void BUsunZRachunku(object sender, RoutedEventArgs e)
+        {
+
+            int wybranyWiersz = ListaDanCopy.SelectedIndex;   // sprawdzam ifem czy nie zwrocilo wartosci -1
+            if (wybranyWiersz != -1)
+                daniaListCopied.RemoveAt(wybranyWiersz);
+        }
+
+        
 
        
 
