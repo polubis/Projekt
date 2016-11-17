@@ -79,7 +79,8 @@ namespace WpfApplication1
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // inicjalizacja i deklaracja nowego widoku na bazie z listy wyzej
             view.Filter = IdFilter;             // Przypisanie wyniku funkcji do zmiennej view
 
-            
+           // ComboBoxItem ComboItem = (ComboBoxItem)cmbDeviceDefinitionId.SelectedItem;
+            //string name = ComboItem.Name;
 
         }
         #region
@@ -122,12 +123,15 @@ namespace WpfApplication1
 
         private void add_button(object sender, RoutedEventArgs e)  // Przycisk dodajacy wartosci do pol 
         {
+            
             if (string.IsNullOrEmpty(Convert.ToString(pobierzID.Text)) || string.IsNullOrEmpty(pobierzDanie.Text) || string.IsNullOrEmpty(Convert.ToString(pobierzCene.Text))) 
             {
+                
                 MessageBox.Show("Nie dodałeś wartości do pól");
             }
             else
             {
+              
                 daniaList.Add(new Dania(Convert.ToInt32(pobierzID.Text), pobierzDanie.Text, double.Parse(pobierzCene.Text)));
             }
         }

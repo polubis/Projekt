@@ -8,7 +8,7 @@ namespace WpfApplication1
 {
     class Dania
     {
-        public int ID { get; set; }                       // zmienne 
+        public int ID { get; set; }                       // Zmienne 
         public string Danie { get; set; }
         public double Cena { get; set; }
         public Dania() { }
@@ -25,8 +25,12 @@ namespace WpfApplication1
             this.Cena = Cena;
             this.jakieDanie = jakieDanie;
         }
-        public enum rodzajDania { Herbata, Kawa, Napoj, Alkohole, Przystawka, Zupa, DanieGłówne, Pizza,Deser,Dodatki };
+        public enum rodzajDania { Herbata, Kawa, Napoj, Alkohole, Przystawka, Zupa, DanieGłówne, Pizza, Deser, Dodatki };
         public rodzajDania jakieDanie {get; set;}
+      
+    
      
     }
+    public enum rodzajDania { Herbata, Kawa, Napoj, Alkohole, Przystawka, Zupa, DanieGłówne, Pizza, Deser, Dodatki };  // Kopia enum z klasy wyzej. Jest potrzebna, aby kod w xamlu mogl zbindowac wartosci enum
+                                                                                                                      // z ComboBoxem, ktory wyswietla wartosci enum i pobiera wybrana wartosc
 }

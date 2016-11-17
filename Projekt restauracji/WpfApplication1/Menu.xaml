@@ -1,9 +1,16 @@
 ﻿<Window x:Class="WpfApplication1.Menu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:WpfApplication1"
-        Title="Menu" Height="458" Width="753">
-
+         xmlns:local="clr-namespace:WpfApplication1"
+         xmlns:codeq="clr-namespace:System;assembly=mscorlib"
+        Title="Menu" Height="685" Width="777">
+    <Window.Resources>
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type codeq:Enum}" x:Key="Lista">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="local:rodzajDania"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="Close"
                       CanExecute="CommandBinding_CanExecute_3"
@@ -14,9 +21,9 @@
                         Executed="CommandBinding_Executed_2"
                         />
     </Window.CommandBindings>
-    <Grid>
+    <Grid Margin="0,0,0,0">
         <DockPanel>
-            <Menu DockPanel.Dock="Right">
+            <Menu DockPanel.Dock="Right" Margin="0,0,0,302">
                 <MenuItem Header="Opcje" HorizontalAlignment="Center" Margin="5" >
                     <MenuItem Header="Kalkulator" Command="Open" InputGestureText="CTRL+K">
                         <MenuItem.Icon>
@@ -45,8 +52,8 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <DockPanel Margin="10">
-            <WrapPanel Orientation="Horizontal" Width="215" Margin="0,29,0,0">
+        <DockPanel Margin="10,10,10,0">
+            <WrapPanel Orientation="Horizontal" Width="215" Margin="0,29,0,10">
                 <Label Content="Szukaj po nazwie lub ID" Width="162" Margin="20,5,0,0" FontWeight="Bold"/>
                 <TextBox Width="200" HorizontalAlignment="Left" Margin="10,10,0,10" x:Name="txtIdNazwaFilter" TextChanged="txtIdNazwaFilter_TextChanged" RenderTransformOrigin="-1.714,0.738" />
                 <Button Width="100" Height="35" HorizontalAlignment="Left" Margin="8,0,0,0" Content="Dodaj" Click="add_button"/>
@@ -58,11 +65,13 @@
                 <Label Content="Cena" Margin="10,20,0,0" Height="30" Width="40"/>
                 <TextBox Width="111" Margin="15,20,0,0" Height="22" x:Name="pobierzCene" />
                 <Label Width="48" Margin="10,20,0,0" Height="29" Content="Rodzaj" />
-                <TextBox Width="111" Margin="7,20,0,0" Height="22" x:Name="pobierzRodzaj"/>
+                <ComboBox x:Name="pobierzRodzaj" ItemsSource="{Binding Source={StaticResource Lista}}" Width="111" Margin="7,20,0,0" Height="22"/>
+               
+
 
             </WrapPanel>
-
-            <ListView Name="listaDan" Width="491" Margin="0,0,0,0" SelectionMode="Multiple" SelectionChanged="listaDan_SelectionChanged">
+         
+            <ListView Name="listaDan" Width="477" Margin="0,29,0,307" SelectionMode="Multiple" SelectionChanged="listaDan_SelectionChanged">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Padding" Value="5"/>
@@ -79,16 +88,24 @@
                         </Style.Triggers>
                     </Style>
                 </ListView.ItemContainerStyle>
+               
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}"/>
                         <GridViewColumn Header="Danie"  Width="150" DisplayMemberBinding="{Binding Danie}" />
                         <GridViewColumn Header="Cena"  Width="70" DisplayMemberBinding="{Binding Cena}"/>
-                                <GridViewColumn Header="Rodzaj" Width="100" DisplayMemberBinding="{Binding jakieDanie}"/>
+                        <GridViewColumn Header="Rodzaj" Width="100" DisplayMemberBinding="{Binding jakieDanie}"/>
 
                     </GridView>
                 </ListView.View>
             </ListView>
         </DockPanel>
+        <DockPanel>
+            
+            <WrapPanel  Width="524" RenderTransformOrigin="0.135,0.508" Margin="210,353,0,10">
+                <ListView x:Name="ListaDanCopy" Width="475" Height="208" Margin="26,5,0,0"/>
+            </WrapPanel>
+        </DockPanel>
+
     </Grid>
 </Window>
