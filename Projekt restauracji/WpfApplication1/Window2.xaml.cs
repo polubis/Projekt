@@ -80,8 +80,6 @@ namespace WpfApplication1
             ApplicationCommands.Open.InputGestures.Add(new KeyGesture (Key.K,ModifierKeys.Control));  // uzbrojenie kontroli w skrot
             
 
-            int ileElementow =(daniaList.Count);
-            Convert.ToString(ileElementow);
             
             
         }
