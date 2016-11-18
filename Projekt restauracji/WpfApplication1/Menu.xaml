@@ -11,6 +11,10 @@
                         CanExecute="CommandBinding_CanExecute_2"
                         Executed="CommandBinding_Executed_2"
                         />
+        <CommandBinding Command="Delete"
+                        CanExecute="CommandBinding_CanExecute"
+                        Executed="CommandBinding_Executed"
+                        />
     </Window.CommandBindings>
     <Grid Margin="0,0,0,0">
         <DockPanel>
@@ -30,7 +34,7 @@
 
                 </MenuItem>
                 <MenuItem Header="Informacje" HorizontalAlignment="Right" >
-                    <MenuItem Header="Liczba rekordów">
+                    <MenuItem Header="Liczba rekordów" Click="MenuItem_Click">
                         <MenuItem.Icon>
                             <Image Source="Pictures/howMany.png" Width="21"/>
                         </MenuItem.Icon>
@@ -106,8 +110,9 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button Margin="50,30,0,0" Width="100" Height="35" Click="BdodajDoRachunku" Content="Dodaj do&#xD;&#xA;rachunku"/>
-                <Button Margin="50,30,0,0" Width="100" Height="35" Click="BUsunZRachunku" Content="Usuń z rachunku" />
+                <Button Margin="50,30,0,0" Width="100" Height="35" Click="BdodajDoRachunku" Content="Dodaj do&#xD;&#xA;rachunku" />
+                <Button Margin="50,30,0,0" Width="100" Height="35" Click="BUsunZRachunku" Content="Usuń z rachunku" Command="Delete" />
+                <Button Margin="50,30,0,0" Width="100" Height="35" Click="BObliczKwote" Content="Do zapłaty"/>
             </WrapPanel>
             
         </DockPanel>

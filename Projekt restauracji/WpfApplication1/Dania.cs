@@ -12,15 +12,8 @@ namespace WpfApplication1
         public string Danie { get; set; }
         public double Cena { get; set; }
         public string Rodzaj { get; set; }
+     
         public Dania() { }
-        public Dania(int ID, string Danie, double Cena)
-        {
-            this.ID = ID;
-            this.Danie = Danie;
-            this.Cena = Cena;
-   
-        }
-
         public Dania(int ID, string Danie, double Cena,string Rodzaj)
         {
             this.ID = ID;
@@ -36,6 +29,19 @@ namespace WpfApplication1
             this.Cena = Cena;
             this.jakieDanie = jakieDanie;
         }
+        public double ObliczCene(int rozmiar,double Kwota)  // rozmiar listy
+        {
+            double Suma=0;
+            for (int i = 0; i < rozmiar;i++ )
+            {
+                Suma = Suma + Kwota;
+                
+            }
+            
+            return Suma;
+          
+        }
+       
         public enum rodzajDania { Herbata, Kawa, Napoj, Alkohole, Przystawka, Zupa, DanieGłówne, Pizza, Deser, Dodatki };
         public rodzajDania jakieDanie {get; set;} 
     }

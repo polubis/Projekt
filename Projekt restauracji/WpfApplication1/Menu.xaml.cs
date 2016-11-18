@@ -77,6 +77,7 @@ namespace WpfApplication1
           
             #endregion
             ApplicationCommands.Open.InputGestures.Add(new KeyGesture(Key.K, ModifierKeys.Control));  // uzbrojenie kontroli w skrot
+            ApplicationCommands.Delete.InputGestures.Add(new KeyGesture(Key.Delete));
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // inicjalizacja i deklaracja nowego widoku na bazie z listy wyzej
             view.Filter = IdFilter;             // Przypisanie wyniku funkcji do zmiennej view
@@ -176,12 +177,50 @@ namespace WpfApplication1
                 daniaListCopied.RemoveAt(wybranyWiersz);
         }
 
-        
+        private void BObliczKwote(object sender, RoutedEventArgs e)
+        {
 
-       
+          foreach(var element in daniaListCopied)
+          {
+             double wynik = element.ObliczCene(daniaListCopied.Count, element.Cena);
 
-       
-        
+            
+             Wyswietl(wynik);
+          }
+
+          
+         
+        }
+      
+        private void Wyswietl(double Wynik)
+        {
+            MessageBox.Show(Convert.ToString(Wynik));
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            int LiczbaRekordowBazie = daniaList.Count;
+            MessageBox.Show("Liczba rekordow w bazie : " + Convert.ToString(LiczbaRekordowBazie));
+            int LiczbaRekordowKoszyk = daniaListCopied.Count;
+            MessageBox.Show("Liczba rekordow w koszyku : " + Convert.ToString(LiczbaRekordowKoszyk));
+
+        }
+
+        // Ustawienie kontrolki DELETE
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)  
+        {
+            e.CanExecute = true;
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            int wybranyWiersz = ListaDanCopy.SelectedIndex;   
+            if (wybranyWiersz != -1)
+            {
+                daniaListCopied.RemoveAt(wybranyWiersz);
+            }
+            
+        }
 
     }
      
