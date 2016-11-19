@@ -170,19 +170,26 @@ namespace WpfApplication1
 
         private void BObliczKwote(object sender, RoutedEventArgs e)
         {
-             foreach (var element in DaniaListCopied)
-             {
-
-                 double DoZaplaty = 0;
-                 DoZaplaty = element.Cena + DoZaplaty;
-                 Wyswietl(DoZaplaty);
-             }
+             int RozmiarListy = DaniaListCopied.Count;
+             double[] tablica = new double[RozmiarListy];
+             double Suma=0;
+             int i = 0;
+            foreach(var element in DaniaListCopied)
+            {
+                tablica[i] = element.Cena;
+                i++;
+            }
+            for(int j=0;j<DaniaListCopied.Count;j++)
+            {
+                Suma += tablica[j];
+             
+          
+            }
+            MessageBox.Show(Convert.ToString(Suma));
+            
         }
       
-        private void Wyswietl(double Wynik)
-        {
-            MessageBox.Show(Convert.ToString(Wynik));
-        }
+
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
