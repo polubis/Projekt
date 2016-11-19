@@ -185,7 +185,7 @@ namespace WpfApplication1
              
           
             }
-            MessageBox.Show(Convert.ToString(Suma));
+            MessageBox.Show("Kwota do zaplaty "+Convert.ToString(Suma));
             
         }
       

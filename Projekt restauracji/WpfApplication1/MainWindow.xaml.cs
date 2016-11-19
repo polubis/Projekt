@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,24 +21,32 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-          
+        ObservableCollection<Uzytkownik> ListaUzytkownikow = new ObservableCollection<Uzytkownik>();
        
         public MainWindow()
         {
             InitializeComponent();
+            ListaUzytkownikow.Add(new Uzytkownik("wlasciciel","przystan"));
+        
+            ApplicationCommands.Open.InputGestures.Add(new KeyGesture(Key.Enter));  // Uzbrojenie kontrolek w skrot
+        
         }
 
         private void zaloguj_Click(object sender, RoutedEventArgs e)
         {
-             List<Uzytkownicy> listaUzytkownikow = new List<Uzytkownicy>();
-             listaUzytkownikow.Add(new Uzytkownicy() { Login = "szefo1", Haslo = "niemawyplaty" });
-             listaUzytkownikow.Add(new Uzytkownicy() {Login="kelner", Haslo="pracapraca"});
-             listaUzytkownikow.Add(new Uzytkownicy() { Login = "kelner1", Haslo = "kelner1" });
+            
             string login = this.txtLogowanie.Text;
             string haslo = this.boxHaslo.Password;
-            foreach (var element in listaUzytkownikow)
+            bool[] TablicaPrawdy = new bool[ListaUzytkownikow.Count];
+            foreach (var element in ListaUzytkownikow)
             {
-                    bool wynik = checkPass(login, haslo, element.Login, element.Haslo);  // sprawdza warunek prawdziwosci hasla i loginu
+                   bool wynik = element.SprawdzamLogowanie(login, haslo);          //Sprawdza warunek prawdziwosci hasla i loginu
+                   for (int i = 0; i <ListaUzytkownikow.Count; i++)
+                   {
+                       TablicaPrawdy[i] = wynik;
+                   }
+
+                /*
                     if (wynik == true)
                     {
                         this.Hide();
@@ -50,20 +59,33 @@ namespace WpfApplication1
                         MessageBox.Show("Wpisales nie poprawne dane !");
                         break;
                     }
+                 * */
             }
+           for(int j=0;j<ListaUzytkownikow.Count;j++)
+           {
+               if (TablicaPrawdy[j] == true)
+               {
+                   this.Hide();
+                   Window1 ob1 = new Window1();
+                   ob1.Show();
+                 
+               }
+                  
+               else
+               {
+                   MessageBox.Show("Wpisales nie poprawne dane !");
+                   break;
+               }
+           }
+
+
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-        public bool checkPass(string login,string pass,string ElemLog,string ElemPass)
-        {
-            if (login == ElemLog && pass==ElemPass)
-                return true;
-            else 
-                return false;
-        }
+    
         
     }
 }

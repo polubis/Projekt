@@ -8,6 +8,6 @@ namespace WpfApplication1
 {
     interface ICheckpassword
     {
-        bool checkPass(string login, string haslo);
+        bool SprawdzamLogowanie(string login, string haslo);
     }
 }

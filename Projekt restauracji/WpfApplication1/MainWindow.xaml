@@ -4,6 +4,7 @@
         xmlns:local1="clr-namespace:WpfApplication1"
         xmlns:codeq="clr-namespace:System;assembly=mscorlib"
         Title="MainWindow" Height="350" Width="550">
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Pictures/przystan.jpg"/>
@@ -20,6 +21,10 @@
         <Label x:Name="label" Content="HASŁO" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,225,0,0" FontWeight="Bold"/>
         <Label x:Name="label1" Content="LOGIN" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,180,0,0" FontWeight="Bold"/>
         <PasswordBox x:Name="boxHaslo" HorizontalAlignment="Left" Margin="85,225,0,0" VerticalAlignment="Top" Width="174" Height="23" RenderTransformOrigin="-1.105,4.275"/>
-
+        <DockPanel>
+            <WrapPanel Width="208" Margin="335,0,0,0">
+                <Button Width="177" Height="40" Margin="15" Content="Załóż konto" FontSize="20" FontStyle="Italic"/>
+            </WrapPanel>
+        </DockPanel>
     </Grid>
 </Window>
