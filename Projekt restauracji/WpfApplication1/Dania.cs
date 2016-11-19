@@ -29,18 +29,7 @@ namespace WpfApplication1
             this.Cena = Cena;
             this.jakieDanie = jakieDanie;
         }
-        public double ObliczCene(int rozmiar,double Kwota)  // rozmiar listy
-        {
-            double Suma=0;
-            for (int i = 0; i < rozmiar;i++ )
-            {
-                Suma = Suma + Kwota;
-                
-            }
-            
-            return Suma;
-          
-        }
+      
        
         public enum rodzajDania { Herbata, Kawa, Napoj, Alkohole, Przystawka, Zupa, DanieGłówne, Pizza, Deser, Dodatki };
         public rodzajDania jakieDanie {get; set;} 

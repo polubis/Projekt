@@ -67,7 +67,7 @@
 
             </WrapPanel>
          
-            <ListView Name="listaDan" Width="477" Margin="0,29,0,307" SelectionMode="Multiple" SelectionChanged="listaDan_SelectionChanged">
+            <ListView Name="ListaDan" Width="477" Margin="0,29,0,307" >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Padding" Value="5"/>
