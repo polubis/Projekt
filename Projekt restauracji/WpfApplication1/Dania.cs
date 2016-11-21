@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace WpfApplication1
 {
@@ -12,7 +13,6 @@ namespace WpfApplication1
         public string Danie { get; set; }
         public double Cena { get; set; }
         public string Rodzaj { get; set; }
-     
         public Dania() { }
         public Dania(int ID, string Danie, double Cena,string Rodzaj)
         {
@@ -29,8 +29,7 @@ namespace WpfApplication1
             this.Cena = Cena;
             this.jakieDanie = jakieDanie;
         }
-      
-       
+        
         public enum rodzajDania { Herbata, Kawa, Napoj, Alkohole, Przystawka, Zupa, DanieGłówne, Pizza, Deser, Dodatki };
         public rodzajDania jakieDanie {get; set;} 
     }

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WpfApplication1
 {
@@ -23,6 +24,7 @@ namespace WpfApplication1
     {
         ObservableCollection<Dania> DaniaList = new ObservableCollection<Dania>();
         ObservableCollection<Dania> DaniaListCopied = new ObservableCollection<Dania>();
+        
         public Menu()
         {
             InitializeComponent();
@@ -81,10 +83,10 @@ namespace WpfApplication1
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListaDan.ItemsSource); // inicjalizacja i deklaracja nowego widoku na bazie z listy wyzej
             view.Filter = IdFilter;                                                                          // Przypisanie wyniku funkcji do zmiennej view
-
+            
             // ListaDan i ListaDanCopied sa to listy w kodzie XAML DaniaList i DaniaListCopied - kod C#
 
-          
+            
 
         }
         #region
@@ -170,6 +172,8 @@ namespace WpfApplication1
 
         private void BObliczKwote(object sender, RoutedEventArgs e)
         {
+            DateTime OstatniaDataSprzedazy = DateTime.Today;
+            
              int RozmiarListy = DaniaListCopied.Count;
              double[] tablica = new double[RozmiarListy];
              double Suma=0;
@@ -183,13 +187,25 @@ namespace WpfApplication1
             {
                 Suma += tablica[j];
              
-          
             }
+            
             MessageBox.Show("Kwota do zaplaty "+Convert.ToString(Suma));
+            StreamWriter TworzeFakture = new StreamWriter("Faktura.txt");
+            using(TworzeFakture)
+            {
+                TworzeFakture.WriteLine(OstatniaDataSprzedazy.ToString());
+             foreach(var element in DaniaListCopied)
+             {
+                
+                TworzeFakture.WriteLine("{0},{1},{2},{3} ",element.ID.ToString(), element.Danie.ToString(), element.Cena.ToString(), element.Rodzaj.ToString());
+             }
+             TworzeFakture.WriteLine("Zapłacono : {0}", Suma.ToString());
+            }
+            DaniaListCopied.Clear();
             
         }
+       
       
-
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {

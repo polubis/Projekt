@@ -28,19 +28,19 @@ namespace WpfApplication1
             InitializeComponent();
             ListaUzytkownikow.Add(new Uzytkownik("wlasciciel","przystan"));
         
-            ApplicationCommands.Open.InputGestures.Add(new KeyGesture(Key.Enter));  // Uzbrojenie kontrolek w skrot
+  
         
         }
 
         private void zaloguj_Click(object sender, RoutedEventArgs e)
         {
             
-            string login = this.txtLogowanie.Text;
-            string haslo = this.boxHaslo.Password;
+            string Login = this.txtLogowanie.Text;
+            string Haslo = this.boxHaslo.Password;
             bool[] TablicaPrawdy = new bool[ListaUzytkownikow.Count];
             foreach (var element in ListaUzytkownikow)
             {
-                   bool wynik = element.SprawdzamLogowanie(login, haslo);          //Sprawdza warunek prawdziwosci hasla i loginu
+                   bool wynik = element.SprawdzamLogowanie(Login, Haslo);          //Sprawdza warunek prawdziwosci hasla i loginu
                    for (int i = 0; i <ListaUzytkownikow.Count; i++)
                    {
                        TablicaPrawdy[i] = wynik;
