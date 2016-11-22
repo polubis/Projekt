@@ -188,14 +188,14 @@ namespace WpfApplication1
             }
             
             MessageBox.Show("Kwota do zaplaty "+Convert.ToString(Suma));
-            if (File.Exists(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt"))
+            if (File.Exists("Faktura.txt"))
             {
-                TextWriter Faktura = new StreamWriter(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt", true);
+                TextWriter Faktura = new StreamWriter("Faktura.txt", true);
                 TworzeFakture(Suma, Faktura);
             }
-            if (!File.Exists(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt"))
+            if (!File.Exists("Faktura.txt"))
             {
-                TextWriter Faktura = new StreamWriter(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt", true);
+                TextWriter Faktura = new StreamWriter("Faktura.txt", true);
                 TworzeFakture(Suma, Faktura);
             }
             DaniaListCopied.Clear();
