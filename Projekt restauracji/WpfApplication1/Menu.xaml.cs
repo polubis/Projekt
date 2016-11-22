@@ -30,6 +30,7 @@ namespace WpfApplication1
             InitializeComponent();
             // Spis dan w MENU
             #region
+            
             DaniaList.Add(new Dania(1, "CocaCola 330ml", 4, "Napoj"));
             DaniaList.Add(new Dania(2, "Sprite 330ml", 4, "Napoj"));
             DaniaList.Add(new Dania(3, "Fanta 330ml", 4, "Napoj"));
@@ -76,7 +77,7 @@ namespace WpfApplication1
             DaniaList.Add(new Dania(44, "Łosoś", 17, "DanieGłówne"));
             DaniaList.Add(new Dania(45, "Makrela w occie", 17.5, "DanieGłówne"));
             ListaDan.ItemsSource = DaniaList;
-          
+            
             #endregion
             ApplicationCommands.Open.InputGestures.Add(new KeyGesture(Key.K, ModifierKeys.Control));  // Uzbrojenie kontrolek w skrot
             ApplicationCommands.Delete.InputGestures.Add(new KeyGesture(Key.Delete));
@@ -190,16 +191,21 @@ namespace WpfApplication1
             }
             
             MessageBox.Show("Kwota do zaplaty "+Convert.ToString(Suma));
-            StreamWriter TworzeFakture = new StreamWriter("Faktura.txt");
-            using(TworzeFakture)
-            {
-                TworzeFakture.WriteLine(OstatniaDataSprzedazy.ToString());
-             foreach(var element in DaniaListCopied)
+            if(File.Exists(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt"))
+            { 
+            TextWriter TworzeFakture = new StreamWriter(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt",true);
+             using(TworzeFakture)
              {
+              TworzeFakture.WriteLine();
+              TworzeFakture.WriteLine("Data sprzedazy : {0}",OstatniaDataSprzedazy.ToString("g"));
+              
+              foreach(var element in DaniaListCopied)
+              {
                 
                 TworzeFakture.WriteLine("{0},{1},{2},{3} ",element.ID.ToString(), element.Danie.ToString(), element.Cena.ToString(), element.Rodzaj.ToString());
-             }
+              }
              TworzeFakture.WriteLine("Zapłacono : {0}", Suma.ToString());
+             }
             }
             DaniaListCopied.Clear();
             

@@ -29,7 +29,6 @@ namespace WpfApplication1
             this.Cena = Cena;
             this.jakieDanie = jakieDanie;
         }
-        
         public enum rodzajDania { Herbata, Kawa, Napoj, Alkohole, Przystawka, Zupa, DanieGłówne, Pizza, Deser, Dodatki };
         public rodzajDania jakieDanie {get; set;} 
     }
