@@ -1,0 +1,5 @@
+
+Data sprzedazy : 22.11.2016 00:00
+7,Woda niegazowana 0.5l,3,Napoj 
+7,Woda niegazowana 0.5l,3,Napoj 
+Zapłacono : 6
