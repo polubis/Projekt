@@ -173,8 +173,6 @@ namespace WpfApplication1
 
         private void BObliczKwote(object sender, RoutedEventArgs e)
         {
-            DateTime OstatniaDataSprzedazy = DateTime.Today;
-            
              int RozmiarListy = DaniaListCopied.Count;
              double[] tablica = new double[RozmiarListy];
              double Suma=0;
@@ -187,31 +185,38 @@ namespace WpfApplication1
             for(int j=0;j<DaniaListCopied.Count;j++)
             {
                 Suma += tablica[j];
-             
             }
-           
+            
             MessageBox.Show("Kwota do zaplaty "+Convert.ToString(Suma));
-            if(File.Exists(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt"))
-            { 
-            TextWriter TworzeFakture = new StreamWriter(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt",true);
-             using(TworzeFakture)
-             {
-              TworzeFakture.WriteLine();
-              TworzeFakture.WriteLine("Data sprzedazy : {0}",OstatniaDataSprzedazy.ToString("g"));
-              
-              foreach(var element in DaniaListCopied)
-              {
-                
-                TworzeFakture.WriteLine("{0},{1},{2},{3} ",element.ID.ToString(), element.Danie.ToString(), element.Cena.ToString(), element.Rodzaj.ToString());
-              }
-             TworzeFakture.WriteLine("Zapłacono : {0}", Suma.ToString());
-             }
+            if (File.Exists(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt"))
+            {
+                TextWriter Faktura = new StreamWriter(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt", true);
+                TworzeFakture(Suma, Faktura);
+            }
+            if (!File.Exists(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt"))
+            {
+                TextWriter Faktura = new StreamWriter(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt", true);
+                TworzeFakture(Suma, Faktura);
             }
             DaniaListCopied.Clear();
-            
+           
+        }
+        private void TworzeFakture(double ASuma,TextWriter Faktura)
+        {
+            DateTime OstatniaDataSprzedazy = DateTime.Today;
+            using (Faktura)
+            {
+                Faktura.WriteLine();
+                Faktura.WriteLine("Data sprzedazy : {0}", OstatniaDataSprzedazy.ToString("g"));
+
+                foreach (var element in DaniaListCopied)
+                {
+                    Faktura.WriteLine("{0},{1},{2},{3} ", element.ID.ToString(), element.Danie.ToString(), element.Cena.ToString(), element.Rodzaj.ToString());
+                }
+                Faktura.WriteLine("Zapłacono : {0}", ASuma.ToString());
+            }
         }
        
-      
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
