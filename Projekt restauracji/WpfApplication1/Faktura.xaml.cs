@@ -22,7 +22,7 @@ namespace WpfApplication1
     {
         public Faktura()
         {
-            InitializeComponent();
+            InitializeComponent();               // Kopiuje zawartosc pliku txt to Comboboxa
             if(File.Exists("Faktura.txt"))
             {
                 StreamReader Odczyt = File.OpenText("Faktura.txt");
