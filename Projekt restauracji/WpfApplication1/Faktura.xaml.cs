@@ -23,9 +23,9 @@ namespace WpfApplication1
         public Faktura()
         {
             InitializeComponent();
-            if(File.Exists(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt"))
+            if(File.Exists("Faktura.txt"))
             {
-                StreamReader Odczyt = File.OpenText(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt");
+                StreamReader Odczyt = File.OpenText("Faktura.txt");
                 string ZawartoscFaktury = Odczyt.ReadToEnd();
                 WyswietlFakture.Text = ZawartoscFaktury;
             }
