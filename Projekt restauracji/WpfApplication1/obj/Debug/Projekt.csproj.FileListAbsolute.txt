@@ -59,3 +59,5 @@ C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Kalkulat
 C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Menu.g.cs
 C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.lref
 C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Faktura.baml
+C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\obj\Debug\Faktura.g.cs

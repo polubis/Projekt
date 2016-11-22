@@ -33,7 +33,7 @@
         <Button Content="9" Grid.Row="2" Grid.Column="2" Margin="5"
             Click="NumberButton_Click" />
         <Button Content="C" Grid.Row="2" Grid.Column="4" Margin="5"
-            Click="EraseButton_Click"  ToolTip="Wyczyść" />
+            Click="EraseButton_Click"  ToolTip="Wyczyść" Grid.RowSpan="2" />
         <Button Content="4" Grid.Row="3" Grid.Column="0" Margin="5"
             Click="NumberButton_Click" />
         <Button Content="5" Grid.Row="3" Grid.Column="1" Margin="5"
@@ -60,8 +60,6 @@
             Click="CommaButton_Click" />
         <Button Content="+" Grid.Row="5" Grid.Column="3" Margin="5"
             Click="OperationButton_Click" />
-        <Button Content="Drukuj" Grid.Row="4" Grid.Column="4" Margin="5" />
-        <Button Content="Zapisz" Grid.Row="3" Grid.Column="4" Margin="5,5,5,6" />
-        <Button Content="Zamknij" Grid.Row="5" Grid.Column="4" Margin="5,5,5,6" Click="Button_Click" />
+        <Button Content="Zamknij" Grid.Row="4" Grid.Column="4" Margin="5,10,5,6" Click="Button_Click" Grid.RowSpan="2" />
     </Grid>
 </Window>

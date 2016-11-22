@@ -61,6 +61,7 @@
                 <TextBox Width="111" Margin="15,20,0,0" Height="22" x:Name="pobierzCene" />
                 <Label Width="48" Margin="10,20,0,0" Height="29" Content="Rodzaj" />
                 <TextBox Width="111" Margin="7,20,0,0" Height="22" x:Name="pobierzRodzaj"/>
+                <Button Margin="65,70,0,0" Width="100" Height="35" Content="Wyświetl fakturę" Click="WyswietlFakture"/>
 
 
 

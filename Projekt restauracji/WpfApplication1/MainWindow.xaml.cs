@@ -27,6 +27,8 @@ namespace WpfApplication1
         {
             InitializeComponent();
             ListaUzytkownikow.Add(new Uzytkownik("wlasciciel","przystan"));
+            ListaUzytkownikow.Add(new Uzytkownik("pracownik", "przystan"));
+            ListaUzytkownikow.Add(new Uzytkownik("pracownik", "przystan1"));
         
   
         
@@ -38,37 +40,24 @@ namespace WpfApplication1
             string Login = this.txtLogowanie.Text;
             string Haslo = this.boxHaslo.Password;
             bool[] TablicaPrawdy = new bool[ListaUzytkownikow.Count];
+            int i = 0;
             foreach (var element in ListaUzytkownikow)
             {
                    bool wynik = element.SprawdzamLogowanie(Login, Haslo);          //Sprawdza warunek prawdziwosci hasla i loginu
-                   for (int i = 0; i <ListaUzytkownikow.Count; i++)
-                   {
-                       TablicaPrawdy[i] = wynik;
-                   }
-
-                /*
-                    if (wynik == true)
-                    {
-                        this.Hide();
-                        Window1 ob1 = new Window1();
-                        ob1.Show();
-                        break;
-                    }
-                    else if (wynik == false)
-                    {
-                        MessageBox.Show("Wpisales nie poprawne dane !");
-                        break;
-                    }
-                 * */
+                   TablicaPrawdy[i] = wynik;
+                   i++;
+                   
             }
+            // dobrze dotad 
            for(int j=0;j<ListaUzytkownikow.Count;j++)
            {
                if (TablicaPrawdy[j] == true)
                {
+                   
                    this.Hide();
                    Window1 ob1 = new Window1();
                    ob1.Show();
-                 
+                   break;
                }
                   
                else

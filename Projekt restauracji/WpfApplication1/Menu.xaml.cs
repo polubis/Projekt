@@ -189,7 +189,7 @@ namespace WpfApplication1
                 Suma += tablica[j];
              
             }
-            
+           
             MessageBox.Show("Kwota do zaplaty "+Convert.ToString(Suma));
             if(File.Exists(@"C:\Users\Adrianek\Desktop\Projekt restauracji\WpfApplication1\bin\Debug\\Faktura.txt"))
             { 
@@ -234,6 +234,12 @@ namespace WpfApplication1
             if (wybranyWiersz != -1)
                 DaniaListCopied.RemoveAt(wybranyWiersz);
 
+        }
+
+        private void WyswietlFakture(object sender, RoutedEventArgs e)
+        {
+            Faktura ob = new Faktura();
+            ob.Show();
         }
 
     }
