@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WpfApplication1
 {
@@ -29,14 +30,11 @@ namespace WpfApplication1
             ListaUzytkownikow.Add(new Uzytkownik("wlasciciel","przystan"));
             ListaUzytkownikow.Add(new Uzytkownik("pracownik", "przystan"));
             ListaUzytkownikow.Add(new Uzytkownik("pracownik", "przystan1"));
-        
-  
-        
-        }
 
+        }
+        
         private void zaloguj_Click(object sender, RoutedEventArgs e)
         {
-            
             string Login = this.txtLogowanie.Text;
             string Haslo = this.boxHaslo.Password;
             bool[] TablicaPrawdy = new bool[ListaUzytkownikow.Count];
@@ -46,34 +44,30 @@ namespace WpfApplication1
                    bool wynik = element.SprawdzamLogowanie(Login, Haslo);          //Sprawdza warunek prawdziwosci hasla i loginu
                    TablicaPrawdy[i] = wynik;
                    i++;
-                   
             }
             // dobrze dotad 
            for(int j=0;j<ListaUzytkownikow.Count;j++)
            {
                if (TablicaPrawdy[j] == true)
                {
-                   
                    this.Hide();
                    Window1 ob1 = new Window1();
                    ob1.Show();
-                   break;
-               }
-                  
-               else
-               {
-                   MessageBox.Show("Wpisales nie poprawne dane !");
-                   break;
-               }
+               }     
            }
-
-
+            
         }
-
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
+
+        private void ZalorzKonto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+      
     
         
     }

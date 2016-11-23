@@ -23,7 +23,7 @@
         <PasswordBox x:Name="boxHaslo" HorizontalAlignment="Left" Margin="85,225,0,0" VerticalAlignment="Top" Width="174" Height="23" RenderTransformOrigin="-1.105,4.275"/>
         <DockPanel>
             <WrapPanel Width="208" Margin="335,0,0,0">
-                <Button Width="177" Height="40" Margin="15" Content="Załóż konto" FontSize="20" FontStyle="Italic"/>
+                <Button Width="177" Height="40" Margin="15" Content="Załóż konto" FontSize="20" FontStyle="Italic" Click="ZalorzKonto_Click"/>
             </WrapPanel>
         </DockPanel>
     </Grid>
