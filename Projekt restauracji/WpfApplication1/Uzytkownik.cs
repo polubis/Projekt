@@ -17,7 +17,7 @@ using System.IO;
 
 namespace WpfApplication1
 {
-    class Uzytkownik:ICheckpassword
+    class Uzytkownik
     {
         private string Login;
         private string Haslo;
@@ -58,23 +58,19 @@ namespace WpfApplication1
         {
             using (strumien)
             {
-                strumien.WriteLine(Login + Haslo+":"); // Tworzy plik txt
+                strumien.WriteLine(Login+Haslo); // Tworzy plik txt
             }
         }
-        public bool Sprawdzam(string Login,string Haslo, StreamReader Odczyt,bool SprawdzamLogin,bool SprawdzamHaslo) // Sprawdza czy dane wejsciowe sa poprawne z tymi w pliku tekstowym.
+        public bool Sprawdzam(string Login,string Haslo,string Linia) // Sprawdza czy dane wejsciowe sa poprawne z tymi w pliku tekstowym.
         {
-            using(Odczyt)
+            if (Linia == (Login + Haslo))
             {
-                if (SprawdzamLogin|| SprawdzamHaslo)
-                {
-                    MessageBox.Show("Zalogowano");
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                MessageBox.Show("Zalogowano");
+                return true;
             }
+            else
+                return false;
+            
         }
      
  

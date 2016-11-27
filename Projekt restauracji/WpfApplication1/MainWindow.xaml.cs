@@ -42,10 +42,8 @@ namespace WpfApplication1
             if (File.Exists(Login + ".txt"))                // W przypadku utworzenia pliku tekstowego z nazwa uzytkownika wykonuje ciag polecen
             {
                 StreamReader Odczyt = new StreamReader(Login + ".txt");
-                string Linia = Odczyt.ReadLine();                                              // Odczyt pliku tekstowego
-                bool SprawdzamLogin = Linia.Contains(Login);
-                bool SprawdzamHaslo = Linia.Contains(Haslo);                                      
-                if (uzytkownik.Sprawdzam(Login, Haslo, Odczyt, SprawdzamLogin, SprawdzamHaslo))      // Jezeli taki uzytkownik istnieje i login, haslo sa poprawne to otwieram nowego okno.
+                string Linia = Odczyt.ReadLine();                                              // Odczyt pliku tekstowego                   
+                if (uzytkownik.Sprawdzam(Login, Haslo, Linia))      // Jezeli taki uzytkownik istnieje i login, haslo sa poprawne to otwieram nowego okno.
                 {
                     this.Hide();
                     Window1 Okno = new Window1();
