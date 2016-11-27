@@ -20,114 +20,113 @@ namespace WpfApplication1
     /// </summary>
     public partial class Kalkulator : Window
     {
-        enum Operation{brakOperacji = 0, dodawanie, odejmowanie, mnozenie, dzielenie, wynik}
-        private Operation ostatnioWybranaOperacja = Operation.brakOperacji;
+        enum Operacja{brakOperacji = 0, dodawanie, odejmowanie, mnozenie, dzielenie, wynik} // Deklaracja operacji jakie beda wykonywane na kalkulatorze
+        private Operacja ostatnioWybranaOperacja = Operacja.brakOperacji;        // Ustawienie operacji na brak operacji czyli 0, domyslnie zawsze zmienna ta bedzie miec wartosc 0 
         public Kalkulator()
         {
             InitializeComponent();
             
         }
 
-        private void NumberButton_Click(object sender, RoutedEventArgs e)
+        private void PrzyciskNumer_Click(object sender, RoutedEventArgs e) // Okreslenie dzialan dla przyciskow z numerami
         {
-            if (Operation.wynik == ostatnioWybranaOperacja)
+            if (Operacja.wynik == ostatnioWybranaOperacja) // Jezeli wynik jest rowny ostatnio wybranej operacji 0 lub innej 
             {
-                txtDisplay.Text = string.Empty;
-                ostatnioWybranaOperacja = Operation.brakOperacji;
+                txtWyswietlany.Text = string.Empty;              // To tekst wyswietlony bedzie pusty.
+                ostatnioWybranaOperacja = Operacja.brakOperacji;
             }
-            Button oButton = (Button)sender;
-            txtDisplay.Text += oButton.Content;
+            Button oButton = (Button)sender;                             
+            txtWyswietlany.Text += oButton.Content;
         }
 
-        private void EraseButton_Click(object sender, RoutedEventArgs e)
+        private void PrzyciskCzyszczenia_Click(object sender, RoutedEventArgs e) // Czysci zawartosci, ktore sa wyswietlane i zeruje operacje
         {
-            txtDisplay.Text = string.Empty;
-            txtDisplayMemory.Text = string.Empty;
-            txtDisplayOperation.Text = string.Empty;
-            ostatnioWybranaOperacja = Operation.brakOperacji;
+            txtWyswietlany.Text = string.Empty;
+            txtWyswietlany2.Text = string.Empty;
+            txtOperacja.Text = string.Empty;
+            ostatnioWybranaOperacja = Operacja.brakOperacji;
         }
 
-        private void ResultButton_Click(object sender, RoutedEventArgs e)
+        private void PrzyciskWyniku_Click(object sender, RoutedEventArgs e) // Przycisk wynikowy
         {
-            if ((Operation.wynik == ostatnioWybranaOperacja) ||
-        (Operation.brakOperacji == ostatnioWybranaOperacja))
+            if ((Operacja.wynik == ostatnioWybranaOperacja)||(Operacja.brakOperacji == ostatnioWybranaOperacja))  // Sprawdza czy wynik nie jest rowny ostatnio wybranej operacji badz nierowny 0
             {
                 return;
             }
-            if (string.IsNullOrEmpty(txtDisplay.Text))
+            if (string.IsNullOrEmpty(txtWyswietlany.Text)) // Jezeli wartosc jest pusta to poprostu przyporzadkowuje jej 0.
             {
-                txtDisplay.Text = "0";
+                txtWyswietlany.Text = "0";
             }
-            switch (ostatnioWybranaOperacja)
+            switch (ostatnioWybranaOperacja)  // Implementacja dzialan na kalkulatorze
             {
-                case Operation.dodawanie:
-                    txtDisplay.Text = (double.Parse(txtDisplayMemory.Text) +
-                        double.Parse(txtDisplay.Text)).ToString();
+                case Operacja.dodawanie:
+                    txtWyswietlany.Text = (double.Parse(txtWyswietlany2.Text) +
+                        double.Parse(txtWyswietlany.Text)).ToString();
                     break;
-                case Operation.odejmowanie:
-                    txtDisplay.Text = (double.Parse(txtDisplayMemory.Text) -
-                        double.Parse(txtDisplay.Text)).ToString();
+                case Operacja.odejmowanie:
+                    txtWyswietlany.Text = (double.Parse(txtWyswietlany2.Text) -
+                        double.Parse(txtWyswietlany.Text)).ToString();
                     break;
-                case Operation.mnozenie:
-                    txtDisplay.Text = (double.Parse(txtDisplayMemory.Text) *
-                        double.Parse(txtDisplay.Text)).ToString();
+                case Operacja.mnozenie:
+                    txtWyswietlany.Text = (double.Parse(txtWyswietlany2.Text) *
+                        double.Parse(txtWyswietlany.Text)).ToString();
                     break;
-                case Operation.dzielenie:
-                    txtDisplay.Text = (double.Parse(txtDisplayMemory.Text) /
-                        double.Parse(txtDisplay.Text)).ToString();
+                case Operacja.dzielenie:
+                    txtWyswietlany.Text = (double.Parse(txtWyswietlany2.Text) /
+                        double.Parse(txtWyswietlany.Text)).ToString();
                     break;
             }
-            ostatnioWybranaOperacja = Operation.wynik;
-            txtDisplayOperation.Text = string.Empty;
-            txtDisplayMemory.Text = string.Empty;
+            ostatnioWybranaOperacja = Operacja.wynik;  // Zeruje wartosci 
+            txtOperacja.Text = string.Empty;
+            txtWyswietlany2.Text = string.Empty;
         }
 
-        private void CommaButton_Click(object sender, RoutedEventArgs e)
+        private void PrzyciskDodajacyZnak_Click(object sender, RoutedEventArgs e) // Dodaje znak przecinka do liczb zmienno przecinkowych
         {
-            if (Operation.wynik == ostatnioWybranaOperacja)
+            if (Operacja.wynik == ostatnioWybranaOperacja)
             {
-                txtDisplay.Text = string.Empty;
-                ostatnioWybranaOperacja = Operation.brakOperacji;
+                txtWyswietlany.Text = string.Empty;
+                ostatnioWybranaOperacja = Operacja.brakOperacji;
             }
-            if ((txtDisplay.Text.Contains(',')) ||
-                (0 == txtDisplay.Text.Length))
+            if ((txtWyswietlany.Text.Contains(',')) ||  // jezeli wyswietlany tekst zawiera przecinek badz jeglo dlugosc jest rowna 0 to zwraca ten tekst
+                (0 == txtWyswietlany.Text.Length))
             {
                 return;
             }
-            txtDisplay.Text += ",";
+            txtWyswietlany.Text += ",";  // Dodaje do tekstu znak przecinka
         }
 
-        private void OperationButton_Click(object sender, RoutedEventArgs e)
+        private void PrzyciskOperacji_Click(object sender, RoutedEventArgs e) // Zainicjalizowanie przyciskow operacji
         {
-            if ((Operation.brakOperacji != ostatnioWybranaOperacja) || (Operation.wynik != ostatnioWybranaOperacja))
+            if ((Operacja.brakOperacji != ostatnioWybranaOperacja) || (Operacja.wynik != ostatnioWybranaOperacja))
             {
-                ResultButton_Click(this, e);
+                PrzyciskWyniku_Click(this, e);
             }
             Button oButton = (Button)sender;
             switch (oButton.Content.ToString())
             {
                 case "+":
-                    ostatnioWybranaOperacja = Operation.dodawanie;
+                    ostatnioWybranaOperacja = Operacja.dodawanie;
                     break;
                 case "-":
-                    ostatnioWybranaOperacja = Operation.odejmowanie;
+                    ostatnioWybranaOperacja = Operacja.odejmowanie;
                     break;
                 case "*":
-                    ostatnioWybranaOperacja = Operation.mnozenie;
+                    ostatnioWybranaOperacja = Operacja.mnozenie;
                     break;
                 case "/":
-                    ostatnioWybranaOperacja = Operation.dzielenie;
+                    ostatnioWybranaOperacja = Operacja.dzielenie;
                     break;
                 default:
                     MessageBox.Show("Nieznana operacja!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
             }
-            txtDisplayMemory.Text = txtDisplay.Text;
-            txtDisplayOperation.Text = oButton.Content.ToString();
-            txtDisplay.Text = string.Empty;
+            txtWyswietlany2.Text = txtWyswietlany.Text;
+            txtOperacja.Text = oButton.Content.ToString();
+            txtWyswietlany.Text = string.Empty;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Zamykam_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

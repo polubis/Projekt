@@ -4,6 +4,5 @@
         Title="Faktura" Height="300" Width="500">
     <Grid>
         <TextBox x:Name="WyswietlFakture"/>
-
     </Grid>
 </Window>
