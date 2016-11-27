@@ -26,19 +26,19 @@ namespace WpfApplication1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Window2 ob3 = new Window2();
+            Window2 ob3 = new Window2();        // Wyswietlam okno
             ob3.Show();
         }
 
         private void button_Copy_Click(object sender, RoutedEventArgs e)
         {
-            Menu ob2 = new Menu();
+            Menu ob2 = new Menu();          // Wyswietlam okno
             ob2.Show();
         }
 
         private void zamknijButt_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Application.Current.Shutdown();       // Zamykam aplikacje
         }
     }
 }

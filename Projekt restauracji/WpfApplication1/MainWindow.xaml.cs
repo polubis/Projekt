@@ -31,21 +31,21 @@ namespace WpfApplication1
 
         }
 
-        private void zaloguj_Click(object sender, RoutedEventArgs e)
+        private void zaloguj_Click(object sender, RoutedEventArgs e)  // Przycisk do zalogowania
         {
-            string Login = this.txtLogowanie.Text;
-            string Haslo = this.boxHaslo.Password;
-            if (!File.Exists(Login + ".txt"))
+            string Login = this.txtLogowanie.Text; 
+            string Haslo = this.boxHaslo.Password;        // Pobieram wartosc wpisywane przez uzytkownika do TextBoxa i Password Boxa
+            if (!File.Exists(Login + ".txt"))                       
             {
                 MessageBox.Show("Nie ma takiego użytkownika");
-            }
-            if (File.Exists(Login + ".txt"))
+            } 
+            if (File.Exists(Login + ".txt"))                // W przypadku utworzenia pliku tekstowego z nazwa uzytkownika wykonuje ciag polecen
             {
                 StreamReader Odczyt = new StreamReader(Login + ".txt");
-                string Linia = Odczyt.ReadLine();
+                string Linia = Odczyt.ReadLine();                                              // Odczyt pliku tekstowego
                 bool SprawdzamLogin = Linia.Contains(Login);
-                bool SprawdzamHaslo = Linia.Contains(Haslo);
-                if (uzytkownik.Sprawdzam(Login, Haslo, Odczyt, SprawdzamLogin, SprawdzamHaslo))
+                bool SprawdzamHaslo = Linia.Contains(Haslo);                                      
+                if (uzytkownik.Sprawdzam(Login, Haslo, Odczyt, SprawdzamLogin, SprawdzamHaslo))      // Jezeli taki uzytkownik istnieje i login, haslo sa poprawne to otwieram nowego okno.
                 {
                     this.Hide();
                     Window1 Okno = new Window1();
@@ -60,14 +60,14 @@ namespace WpfApplication1
         }
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Application.Current.Shutdown();                              // Zamykam aplikacje, przycisk wyjscie
         }
 
         private void ZalozKonto_Click(object sender, RoutedEventArgs e)
         {
-            string Login = this.txtLogowanie.Text;
+            string Login = this.txtLogowanie.Text;                                  
             string Haslo = this.boxHaslo.Password;
-            uzytkownik.TworzeKonto(Login, Haslo);
+            uzytkownik.TworzeKonto(Login, Haslo);                             // Zakladam konto, tworze nowy plik tekstowy z loginem i haslem w srodku.
         }
 
       

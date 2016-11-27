@@ -69,11 +69,11 @@ namespace WpfApplication1
             daniaList.Add(new Dania(43, "Zapiekanka mazurska", 11, Dania.rodzajDania.DanieGłówne));
             daniaList.Add(new Dania(44, "Łosoś", 17, Dania.rodzajDania.DanieGłówne));
             
-              listaDan.ItemsSource = daniaList;
+             listaDan.ItemsSource = daniaList;  // Przypisuje liste dan do listy pokazywanej w aplikacjii
           
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // Podzial na rodzaje dan
-            PropertyGroupDescription groupDescription = new PropertyGroupDescription("jakieDanie");
-            view.GroupDescriptions.Add(groupDescription);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaDan.ItemsSource); // Tworze podzial na rodzaje dan
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("jakieDanie"); // Ustalam element , ktory bedzie rozdzielal 
+            view.GroupDescriptions.Add(groupDescription);     // Pozwalam na wyswietlenie tego podzialu
         
           
 
@@ -82,11 +82,6 @@ namespace WpfApplication1
 
             
             
-        }
-        private string Zwracam(string ileElem)
-        {
-            return ileElem;
-
         }
         private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e) //1. Odnosi sie do kontrolki exit
         {
@@ -98,34 +93,15 @@ namespace WpfApplication1
             Application.Current.Shutdown();
         }
 
-        private void CommandBinding_CanExecute_1(object sender, CanExecuteRoutedEventArgs e)
+        private void CommandBinding_CanExecute_1(object sender, CanExecuteRoutedEventArgs e) //3. Odnosi sie do kalkulatora
         {
             e.CanExecute = true;
         }
 
-        private void CommandBinding_Executed_1(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Executed_1(object sender, ExecutedRoutedEventArgs e)  //4. Pokazuje kalkulator
         {
             Kalkulator ob3 = new Kalkulator();
             ob3.Show();
         }
-
-        private void CommandBinding_CanExecute_2(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void CommandBinding_Executed_2(object sender, ExecutedRoutedEventArgs e)
-        {
-            
-        }
-
-       
-        
-      
-     
-
-    
-      
-        
     }
 }

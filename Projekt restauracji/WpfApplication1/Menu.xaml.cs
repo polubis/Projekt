@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.IO;
+using System.IO;                       // potrzebna do plikow tekstowych
 
 namespace WpfApplication1
 {
@@ -155,12 +155,12 @@ namespace WpfApplication1
 
     
 
-        private void BdodajDoRachunku(object sender, RoutedEventArgs e)
+        private void BdodajDoRachunku(object sender, RoutedEventArgs e) // Dodaje do rachunku (koszyka)
         {
              
-                Dania WybranyWiersz = (Dania)ListaDan.SelectedItem;
+                Dania WybranyWiersz = (Dania)ListaDan.SelectedItem;  //rzutuje na Dania poniewaz inaczej nie dam rady wyluskac wartosci i zrobic na nich operacje
                 DaniaListCopied.Add(new Dania(WybranyWiersz.ID, WybranyWiersz.Danie, WybranyWiersz.Cena, WybranyWiersz.Rodzaj));
-                ListaDanCopy.ItemsSource = DaniaListCopied;
+                ListaDanCopy.ItemsSource = DaniaListCopied;   // lacze liste w kodzie C# z ta wyswietlana
             
         }
 
@@ -168,21 +168,21 @@ namespace WpfApplication1
         {
             int wybranyWiersz =ListaDanCopy.SelectedIndex;   // sprawdzam ifem czy nie zwrocilo wartosci -1
             if (wybranyWiersz != -1)
-                DaniaListCopied.RemoveAt(wybranyWiersz);
+                DaniaListCopied.RemoveAt(wybranyWiersz);  // Usuwam wybrany wiersz
         }
 
         private void BObliczKwote(object sender, RoutedEventArgs e)
         {
              int RozmiarListy = DaniaListCopied.Count;
-             double[] tablica = new double[RozmiarListy];
+             double[] tablica = new double[RozmiarListy];  // 
              double Suma=0;
              int i = 0;
             foreach(var element in DaniaListCopied)
             {
-                tablica[i] = element.Cena;
+                tablica[i] = element.Cena;                       // Tworze tablice , w ktorej elementami sa ceny kazdego z dan znajdujacych sie w koszyku
                 i++;
             }
-            for(int j=0;j<DaniaListCopied.Count;j++)
+            for(int j=0;j<DaniaListCopied.Count;j++)      // Obliczam sume
             {
                 Suma += tablica[j];
             }
@@ -190,7 +190,7 @@ namespace WpfApplication1
             MessageBox.Show("Kwota do zaplaty "+Convert.ToString(Suma));
             if (File.Exists("Faktura.txt"))
             {
-                TextWriter Faktura = new StreamWriter("Faktura.txt", true);
+                TextWriter Faktura = new StreamWriter("Faktura.txt", true);           // Zapisuje sume jak i zarowno podstatowe informacje do pliku tekstowego
                 TworzeFakture(Suma, Faktura);
             }
             if (!File.Exists("Faktura.txt"))
@@ -203,27 +203,33 @@ namespace WpfApplication1
         }
         private void TworzeFakture(double ASuma,TextWriter Faktura)
         {
-            DateTime OstatniaDataSprzedazy = DateTime.Today;
+           
+            string Dzien = DateTime.Now.Day.ToString();                   // Pobieram informacje o dacie i godzinie
+            string Miesiac = DateTime.Now.Month.ToString();
+            string Rok = DateTime.Now.Year.ToString();
+            string Godzina = DateTime.Now.Hour.ToString();
+            string Sekunda = DateTime.Now.Second.ToString();
+            string Informacje = Dzien+":"+Miesiac +":"+Rok + " Godzina : "+Godzina+":"+Sekunda;
             using (Faktura)
             {
                 Faktura.WriteLine();
-                Faktura.WriteLine("Data sprzedazy : {0}", OstatniaDataSprzedazy.ToString("g"));
+                Faktura.WriteLine("Data sprzedazy : {0}", Informacje);      // Wypisuje informacje o dacie godzinie
 
                 foreach (var element in DaniaListCopied)
                 {
-                    Faktura.WriteLine("{0},{1},{2},{3} ", element.ID.ToString(), element.Danie.ToString(), element.Cena.ToString(), element.Rodzaj.ToString());
+                    Faktura.WriteLine("{0},{1},{2},{3} ", element.ID.ToString(), element.Danie.ToString(), element.Cena.ToString(), element.Rodzaj.ToString()); // Wypisuje elementy w koszyku do pliku tekstowego
                 }
-                Faktura.WriteLine("Zapłacono : {0}", ASuma.ToString());
+                Faktura.WriteLine("Zapłacono : {0}", ASuma.ToString()); // Wypisuje sume do pliku tekstowego
             }
         }
        
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            int LiczbaRekordowBazie = DaniaList.Count;
-            MessageBox.Show("Liczba rekordow w bazie : " + Convert.ToString(LiczbaRekordowBazie));
-            int LiczbaRekordowKoszyk = DaniaListCopied.Count;
-            MessageBox.Show("Liczba rekordow w koszyku : " + Convert.ToString(LiczbaRekordowKoszyk));
+            int LiczbaDanWMenu = DaniaList.Count;
+            MessageBox.Show("Liczba rekordow w bazie : " + Convert.ToString(LiczbaDanWMenu));
+            int LiczbaDanWKoszyku = DaniaListCopied.Count;
+            MessageBox.Show("Liczba rekordow w koszyku : " + Convert.ToString(LiczbaDanWKoszyku));   // Sprawdzam liczbe wierszow w koszyku i Menu podstawowym
 
         }
 
@@ -237,13 +243,13 @@ namespace WpfApplication1
         {
             int wybranyWiersz = ListaDanCopy.SelectedIndex;   // sprawdzam ifem czy nie zwrocilo wartosci -1
             if (wybranyWiersz != -1)
-                DaniaListCopied.RemoveAt(wybranyWiersz);
+                DaniaListCopied.RemoveAt(wybranyWiersz);               // Pozwala na usuniecie elementow z koszyka
 
         }
 
         private void WyswietlFakture(object sender, RoutedEventArgs e)
         {
-            Faktura ob = new Faktura();
+            Faktura ob = new Faktura();        // Wyswietlam fakture 
             ob.Show();
         }
 

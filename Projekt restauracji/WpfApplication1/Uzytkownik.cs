@@ -21,19 +21,17 @@ namespace WpfApplication1
     {
         private string Login;
         private string Haslo;
-
-
-        private List<Uzytkownik> ListaUzytkownikow;
+        private List<Uzytkownik> ListaUzytkownikow; // Deklaracja pola, listy 
         public Uzytkownik()
         {
-            ListaUzytkownikow = new List<Uzytkownik>();
+            ListaUzytkownikow = new List<Uzytkownik>();       // W konstruktorze automatycznie tworzona jest lista
         }
         public Uzytkownik(string Login, string Haslo)
         {
             this.Login = Login;
             this.Haslo = Haslo;
         }
-        public void TworzeKonto(string Login, string Haslo)
+        public void TworzeKonto(string Login, string Haslo)               // Zakaldam konto, 1. sprawdza czy wartosci w textboxie albo passboxie sa puste. Jezeli tak to wyswietla komunikat
         {
             if (String.IsNullOrEmpty(Login) || String.IsNullOrEmpty(Haslo))
             {
@@ -41,7 +39,7 @@ namespace WpfApplication1
 
             }
             else
-            {
+            {                                                                          // Dodaje nowego uzytkownika do listy, Nastepnie zapisuje do pliku tekstowego jego dane i zamyka odczyt strumienia
                 ListaUzytkownikow.Add(new Uzytkownik(Login, Haslo));
                 if (File.Exists(Login + ".txt"))
                 {
@@ -60,10 +58,10 @@ namespace WpfApplication1
         {
             using (strumien)
             {
-                strumien.WriteLine(Login + Haslo+":");
+                strumien.WriteLine(Login + Haslo+":"); // Tworzy plik txt
             }
         }
-        public bool Sprawdzam(string Login,string Haslo, StreamReader Odczyt,bool SprawdzamLogin,bool SprawdzamHaslo)
+        public bool Sprawdzam(string Login,string Haslo, StreamReader Odczyt,bool SprawdzamLogin,bool SprawdzamHaslo) // Sprawdza czy dane wejsciowe sa poprawne z tymi w pliku tekstowym.
         {
             using(Odczyt)
             {

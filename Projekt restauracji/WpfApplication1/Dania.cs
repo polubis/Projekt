@@ -9,12 +9,12 @@ namespace WpfApplication1
 {
     class Dania
     {
-        public int ID { get; set; }                       // Zmienne 
+        public int ID { get; set; }                     
         public string Danie { get; set; }
         public double Cena { get; set; }
         public string Rodzaj { get; set; }
         public Dania() { }
-        public Dania(int ID, string Danie, double Cena,string Rodzaj)
+        public Dania(int ID, string Danie, double Cena,string Rodzaj) 
         {
             this.ID = ID;
             this.Danie = Danie;

@@ -11,10 +11,6 @@
                         CanExecute="CommandBinding_CanExecute_1"
                         Executed="CommandBinding_Executed_1"
                         />
-        <CommandBinding Command="Open"
-                        CanExecute="CommandBinding_CanExecute_2"
-                        Executed="CommandBinding_Executed_2"
-                        />
     </Window.CommandBindings>
   
    
@@ -23,33 +19,16 @@
         <DockPanel>
             <Menu DockPanel.Dock="Right" Margin="0,0,0,286">
                 <MenuItem Header="Opcje" HorizontalAlignment="Center" Width="73" >
-                        <MenuItem Header="Kalkulator" Command="Open" InputGestureText="CTRL+K">
+                    <MenuItem Header="Kalkulator" Command="Open" InputGestureText="CTRL+K">
                         <MenuItem.Icon>
                             <Image Source="Pictures/calcIcon.png" Width="15"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                <MenuItem Header="Sortuj">
-                        <MenuItem.Icon>
-                            <Image Source="Pictures/searchIcon.png" Width="20"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                <Separator />
+                    <Separator />
                     <MenuItem Header="Wyjście" Command="Close">
                     <MenuItem.Icon>
                         <Image Source="Pictures/exitIcon.png" Width="21"/>
                     </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="Informacje" HorizontalAlignment="Right" >
-                    <MenuItem Header="Liczba rekordów">
-                        <MenuItem.Icon>
-                            <Image Source="Pictures/howMany.png" Width="21"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Kalendarz">
-                        <MenuItem.Icon>
-                            <Image Source="Pictures/kalendarz.png" Width="21"/>
-                        </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
             </Menu>
