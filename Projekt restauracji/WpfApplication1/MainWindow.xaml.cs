@@ -22,49 +22,52 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Uzytkownik> ListaUzytkownikow = new ObservableCollection<Uzytkownik>();
+        Uzytkownik uzytkownik = new Uzytkownik();
        
         public MainWindow()
         {
             InitializeComponent();
-            ListaUzytkownikow.Add(new Uzytkownik("wlasciciel","przystan"));
-            ListaUzytkownikow.Add(new Uzytkownik("pracownik", "przystan"));
-            ListaUzytkownikow.Add(new Uzytkownik("pracownik", "przystan1"));
+        
 
         }
-        
+
         private void zaloguj_Click(object sender, RoutedEventArgs e)
         {
             string Login = this.txtLogowanie.Text;
             string Haslo = this.boxHaslo.Password;
-            bool[] TablicaPrawdy = new bool[ListaUzytkownikow.Count];
-            int i = 0;
-            foreach (var element in ListaUzytkownikow)
+            if (!File.Exists(Login + ".txt"))
             {
-                   bool wynik = element.SprawdzamLogowanie(Login, Haslo);          //Sprawdza warunek prawdziwosci hasla i loginu
-                   TablicaPrawdy[i] = wynik;
-                   i++;
+                MessageBox.Show("Nie ma takiego użytkownika");
             }
-            // dobrze dotad 
-           for(int j=0;j<ListaUzytkownikow.Count;j++)
-           {
-               if (TablicaPrawdy[j] == true)
-               {
-                   this.Hide();
-                   Window1 ob1 = new Window1();
-                   ob1.Show();
-               }     
-           }
-            
+            if (File.Exists(Login + ".txt"))
+            {
+                StreamReader Odczyt = new StreamReader(Login + ".txt");
+                string Linia = Odczyt.ReadLine();
+                bool SprawdzamLogin = Linia.Contains(Login);
+                bool SprawdzamHaslo = Linia.Contains(Haslo);
+                if (uzytkownik.Sprawdzam(Login, Haslo, Odczyt, SprawdzamLogin, SprawdzamHaslo))
+                {
+                    this.Hide();
+                    Window1 Okno = new Window1();
+                    Okno.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Nie poprawne dane logowania");
+                }
+            }
+
         }
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void ZalorzKonto_Click(object sender, RoutedEventArgs e)
+        private void ZalozKonto_Click(object sender, RoutedEventArgs e)
         {
-
+            string Login = this.txtLogowanie.Text;
+            string Haslo = this.boxHaslo.Password;
+            uzytkownik.TworzeKonto(Login, Haslo);
         }
 
       
