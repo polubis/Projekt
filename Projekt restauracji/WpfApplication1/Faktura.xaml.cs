@@ -28,6 +28,7 @@ namespace WpfApplication1
                 StreamReader Odczyt = File.OpenText("Faktura.txt");
                 string ZawartoscFaktury = Odczyt.ReadToEnd();
                 WyswietlFakture.Text = ZawartoscFaktury;
+                Odczyt.Close();
             }
 
         }
